@@ -77,7 +77,7 @@ states/base_animation/position = Vector2(488, 98.8889)
 transitions = ["Start", "base_animation", SubResource("AnimationNodeStateMachineTransition_08ut0")]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ywr4u"]
-size = Vector2(85, 101)
+size = Vector2(119, 117)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rb62r"]
 radius = 41.4367
@@ -87,9 +87,10 @@ position = Vector2(372, 196)
 script = ExtResource("1_bkg1c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0.670588, 1)
 texture_filter = 1
-position = Vector2(34, 30)
-scale = Vector2(2.0625, 1.9375)
+position = Vector2(50, 21.5)
+scale = Vector2(2.5625, 2.20313)
 texture = ExtResource("1_1n7ar")
 hframes = 6
 
@@ -106,15 +107,17 @@ tree_root = SubResource("AnimationNodeStateMachine_7rtvy")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 light_mask = 2
-position = Vector2(33.5, 27.5)
+position = Vector2(50.5, 19.5)
 shape = SubResource("RectangleShape2D_ywr4u")
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(35, 29)
+position = Vector2(50, 19)
 shape = SubResource("CircleShape2D_rb62r")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

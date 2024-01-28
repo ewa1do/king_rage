@@ -2,7 +2,7 @@ extends CharacterBody2D
 #nombre de la clase para tenerlo como tipo de dato
 class_name Player
 
-const player_speed = 2000
+const player_speed = 500
 @export var vida : int = 100
 
 func _ready():
