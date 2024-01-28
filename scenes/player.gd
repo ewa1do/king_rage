@@ -5,6 +5,8 @@ class_name Player
 const player_speed = 500
 @export var vida : int = 100
 
+signal took_damage
+
 func _ready():
 	pass # Replace with function body.
 
@@ -35,3 +37,7 @@ func set_character_limit_in_row_axis():
 
 func get_vida():
 	return vida
+
+func take_damage():
+	emit_signal("took_damage")
+	print("player took damage")

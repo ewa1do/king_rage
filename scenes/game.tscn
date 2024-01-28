@@ -81,4 +81,5 @@ value = 100.0
 stream = ExtResource("5_jhk5s")
 autoplay = true
 
+[connection signal="took_damage" from="Player" to="." method="_on_player_took_damage"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
