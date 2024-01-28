@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://dur48t68oukhv"]
+
+[ext_resource type="Script" path="res://scenes/TomatoSpawner.gd" id="1_121kh"]
+
+[node name="TomatoSpawner" type="Node2D"]
+script = ExtResource("1_121kh")
+
+[node name="SpawnPositions" type="Node2D" parent="."]
+
+[node name="Tomato_position_01" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(149, -6)
+gizmo_extents = 22.0
+
+[node name="Tomato_position_02" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(360, -3)
+gizmo_extents = 22.0
+
+[node name="Tomato_position_03" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(567, -1)
+gizmo_extents = 22.0
+
+[node name="Tomato_position_04" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(767, -3)
+gizmo_extents = 22.0
+
+[node name="Tomato_position_05" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(1004, -11)
+gizmo_extents = 22.0
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

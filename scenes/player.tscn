@@ -1,0 +1,120 @@
+[gd_scene load_steps=11 format=3 uid="uid://c5x3kd85d42pe"]
+
+[ext_resource type="Texture2D" uid="uid://b58nmks0evasm" path="res://assets/textures/spr_animacion_base_bufon.png" id="1_1n7ar"]
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_bkg1c"]
+
+[sub_resource type="Animation" id="Animation_gutdq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ba8vo"]
+resource_name = "base_animation"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_1n7ar")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 2, 3, 4, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f5yif"]
+_data = {
+"RESET": SubResource("Animation_gutdq"),
+"base_animation": SubResource("Animation_ba8vo")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jxotj"]
+animation = &"base_animation"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_08ut0"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_7rtvy"]
+states/base_animation/node = SubResource("AnimationNodeAnimation_jxotj")
+states/base_animation/position = Vector2(488, 98.8889)
+transitions = ["Start", "base_animation", SubResource("AnimationNodeStateMachineTransition_08ut0")]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ywr4u"]
+size = Vector2(85, 101)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rb62r"]
+radius = 41.4367
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(372, 196)
+script = ExtResource("1_bkg1c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(34, 30)
+scale = Vector2(2.0625, 1.9375)
+texture = ExtResource("1_1n7ar")
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f5yif")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f5yif")
+}
+tree_root = SubResource("AnimationNodeStateMachine_7rtvy")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 2
+position = Vector2(33.5, 27.5)
+shape = SubResource("RectangleShape2D_ywr4u")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(35, 29)
+shape = SubResource("CircleShape2D_rb62r")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
