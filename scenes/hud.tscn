@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7b5ssd7phc57"]
+
+[ext_resource type="Script" path="res://scenes/HUD.gd" id="1_ntbs1"]
+[ext_resource type="Texture2D" uid="uid://bx8qhliy3gsd6" path="res://assets/textures/hat_spr.png" id="2_haawu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m2qew"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ymd5v"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ntbs1")
+
+[node name="LifeTextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_haawu")
+
+[node name="X" type="Label" parent="."]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 20.0
+offset_right = 91.0
+offset_bottom = 44.0
+text = "X
+"
+label_settings = SubResource("LabelSettings_m2qew")
+
+[node name="LivesLeft" type="Label" parent="."]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 7.0
+offset_right = 117.0
+offset_bottom = 30.0
+scale = Vector2(2, 2)
+text = "3"
+label_settings = SubResource("LabelSettings_ymd5v")

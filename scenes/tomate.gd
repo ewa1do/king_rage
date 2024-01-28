@@ -12,5 +12,5 @@ func die():
 	queue_free()
 
 func _on_body_entered(body):
-	print("ENTERED=>", body)
 	body.take_damage()
+	die()
