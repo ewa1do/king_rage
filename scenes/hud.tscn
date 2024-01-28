@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7b5ssd7phc57"]
+[gd_scene load_steps=6 format=3 uid="uid://c7b5ssd7phc57"]
 
 [ext_resource type="Script" path="res://scenes/HUD.gd" id="1_ntbs1"]
 [ext_resource type="Texture2D" uid="uid://bx8qhliy3gsd6" path="res://assets/textures/hat_spr.png" id="2_haawu"]
+[ext_resource type="FontFile" uid="uid://cmnqvm8u5pm3p" path="res://assets/font/PressStart2P-Regular.ttf" id="3_7jh4y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_m2qew"]
 
@@ -22,20 +23,24 @@ texture = ExtResource("2_haawu")
 
 [node name="X" type="Label" parent="."]
 layout_mode = 0
-offset_left = 62.0
-offset_top = 20.0
-offset_right = 91.0
-offset_bottom = 44.0
+offset_left = 58.0
+offset_top = 21.0
+offset_right = 87.0
+offset_bottom = 45.0
+theme_override_fonts/font = ExtResource("3_7jh4y")
 text = "X
 "
 label_settings = SubResource("LabelSettings_m2qew")
 
 [node name="LivesLeft" type="Label" parent="."]
+texture_filter = 1
+texture_repeat = 1
 layout_mode = 0
-offset_left = 77.0
-offset_top = 7.0
-offset_right = 117.0
-offset_bottom = 30.0
+offset_left = 75.0
+offset_top = 15.0
+offset_right = 115.0
+offset_bottom = 38.0
 scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("3_7jh4y")
 text = "3"
 label_settings = SubResource("LabelSettings_ymd5v")

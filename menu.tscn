@@ -73,6 +73,7 @@ text = "START"
 [node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/separador2"]
 texture_filter = 1
 texture_repeat = 1
+layout_mode = 0
 offset_left = 33.0
 offset_top = 240.0
 offset_right = 121.0

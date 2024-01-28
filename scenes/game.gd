@@ -3,8 +3,15 @@ extends Node2D
 @onready var player = $Player
 @onready var hud = $UI/HUD
 @onready var timer : Timer = $Timer
+var next_room =preload("res://scenes/game_over.tscn") as PackedScene
+
+# Game over scene change
+func change_scene():
+	pass
 
 var lives = 3
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,7 +28,7 @@ func _on_timer_timeout():
 	pass
 
 func game_over():
-	queue_free()
+	get_tree().change_scene_to_packed(next_room)
 
 func _on_player_took_damage():
 	lives -= 1
