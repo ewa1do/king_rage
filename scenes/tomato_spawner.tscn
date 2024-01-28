@@ -24,7 +24,19 @@ position = Vector2(767, -3)
 gizmo_extents = 22.0
 
 [node name="Tomato_position_05" type="Marker2D" parent="SpawnPositions"]
-position = Vector2(1004, -11)
+position = Vector2(54, -6)
+gizmo_extents = 22.0
+
+[node name="Tomato_position_06" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(250, -4)
+gizmo_extents = 22.0
+
+[node name="Tomato_position_07" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(460, -4)
+gizmo_extents = 22.0
+
+[node name="Tomato_position_08" type="Marker2D" parent="SpawnPositions"]
+position = Vector2(670, -4)
 gizmo_extents = 22.0
 
 [node name="Timer" type="Timer" parent="."]
